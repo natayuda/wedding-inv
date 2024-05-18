@@ -257,36 +257,43 @@
             </div>
         </div>
 
-        <!-- Tanggal -->
+        <!-- Countdown -->
         <section class="dark-section bg-black" id="mempelai" style="position: relative;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset3.png'); background-size: cover; background-position: center; opacity: 0.3;"></div>
-            <div class="container" style="padding-top: 50px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset3.png'); background-size: cover; background-position: center; opacity: 0.5;"></div>
+            <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
                 <div class="text-center">
 
-                    <h1 class="font-esthetic py-3" style="font-size: 2rem;">Waktu Menuju Acara</h1>
-                    <div class="border rounded-pill shadow py-2 px-4 mx-2 mb-4">
-
+                    <h1 class="font-esthetic py-3" style="font-size: 1.5rem;">Countdown</h1>
                         <!-- Ganti waktunya pada data-waktu (sesuai format tersebut) -->
-                        <div class="row justify-content-center" data-time="2024-08-31 00:00:00" id="count-down">
-                            <div class="col-3 p-1">
-                                <h2 class="d-inline m-0 p-0" id="day">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Hari</small>
+                        <div class="row justify-content-center mx-2" data-time="2024-08-31 00:00:00" id="count-down" style="padding-top: 250px; padding-bottom: 250px;">
+                            <div class="col-3 p-1"> <!-- Removed border class here -->
+                                <div class="border mb-2"> <!-- Added mb-2 for space between borders -->
+                                    <h2 class="d-inline m-0 p-0" id="day">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Hari</small>
+                                </div>
                             </div>
-                            <div class="col-3 p-1">
-                                <h2 class="d-inline m-0 p-0" id="hour">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Jam</small>
+                            <div class="col-3 p-1"> <!-- Removed border class here -->
+                                <div class="border mb-2"> <!-- Added mb-2 for space between borders -->
+                                    <h2 class="d-inline m-0 p-0" id="hour">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Jam</small>
+                                </div>
                             </div>
-                            <div class="col-3 p-1">
-                                <h2 class="d-inline m-0 p-0" id="minute">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Menit</small>
+                            <div class="col-3 p-1"> <!-- Removed border class here -->
+                                <div class="border mb-2"> <!-- Added mb-2 for space between borders -->
+                                    <h2 class="d-inline m-0 p-0" id="minute">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Menit</small>
+                                </div>
                             </div>
-                            <div class="col-3 p-1">
-                                <h2 class="d-inline m-0 p-0" id="second">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Detik</small>
+                            <div class="col-3 p-1"> <!-- Removed border class here -->
+                                <div class="border mb-2"> <!-- Added mb-2 for space between borders -->
+                                    <h2 class="d-inline m-0 p-0" id="second">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Detik</small>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>                                                             
+        </section>
 
-                    <p style="font-size: 0.9rem;" class="mt-4 py-2">
-                        Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan
-                        acara :
-                    </p>
+        <!-- Detail Acara -->
+        <section class="dark-section bg-black" id="mempelai" style="position: relative;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset5.jpeg'); background-size: cover; background-position: center; opacity: 0.3;"></div>
+            <div class="container" style="padding-top: 20px;">
+                <div class="text-center">
 
                     <!-- Love animation -->
                     <div class="position-relative">
@@ -299,13 +306,22 @@
 
                     <div class="overflow-x-hidden">
                         <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
-                            <h1 class="font-esthetic" style="font-size: 2rem;">Akad</h1>
-                            <p>Pukul 08.00 WIB - Selesai</p>
+                            <h1 class="font-esthetic" style="font-size: 1.5rem;">Akad</h1>
+                            <p style="font-size: 1.2rem;">08.00 WIB - Selesai</p>
+                        </div>
+
+                        <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
+                            <a href="https://maps.app.goo.gl/tqDDmqfXcJYSPmyn9" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                                <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
+                            </a>
+                            <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
+                                Klub Bogor Raya, Perumahan Jl. Danau Bogor Raya No.16143, Katulampa, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143
+                            </p>
                         </div>
 
                         <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
-                            <h1 class="font-esthetic" style="font-size: 2rem;">Resepsi</h1>
-                            <p>Pukul 10.00 WIB - 13.00 WIB</p>
+                            <h1 class="font-esthetic" style="font-size: 1.5rem;">Resepsi</h1>
+                            <p style="font-size: 1.2rem;">08.00 WIB - Selesai</p>
                         </div>
                     </div>
 
