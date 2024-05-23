@@ -142,3 +142,11 @@ footer {
 .color-theme-black {
     color: black;
 }
+
+.bordered-row {
+    background-image: url('./assets/images/frame-top.png');
+    background-repeat: repeat-x; /* Repeat the image horizontally */
+    padding: 30px 0; /* Adjust padding to match the border image size */
+}
+
+
