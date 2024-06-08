@@ -143,10 +143,8 @@ footer {
     color: black;
 }
 
-.bordered-row {
-    background-image: url('./assets/images/frame-top.png');
-    background-repeat: repeat-x; /* Repeat the image horizontally */
-    padding: 30px 0; /* Adjust padding to match the border image size */
+/* Custom column class */
+.col-custom {
+    width: calc(25% - 20px); /* 25% width for each column with space between */
+    margin: 0 1px; /* Adjust the space between columns */
 }
-
-

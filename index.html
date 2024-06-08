@@ -259,53 +259,68 @@
 
         <!-- Countdown -->
         <section class="dark-section bg-black" id="tanggal" style="position: relative;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset3.png'); background-size: cover; background-position: center; opacity: 0.5;"></div>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset3.gif'); background-size: cover; background-position: center; opacity: 1;"></div>
             <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
-                <div class="text-center">
-                    <h1 class="font-esthetic py-3" style="font-size: 1.5rem;">Countdown</h1>
+                <div class="text-center" style="position: relative;">
+                    <img src="./assets/images/countdown.png" alt="Countdown Image" style="width: 200px; height: auto; margin-bottom: 120px; position: absolute; top: 110px; left: 50%; transform: translateX(-50%);">
+                    <!-- Adjust width, height, margin, and position as needed -->
+                    <h1 class="font-esthetic py-3" style="font-size: 1.5rem; margin-bottom: 140px;"></h1>
                     <!-- Ganti waktunya pada data-waktu (sesuai format tersebut) -->
-                    <div class="row justify-content-center" data-time="2024-08-31 00:00:00" id="count-down" style="padding-top: 50px; padding-bottom: 50px;">
-                        <div class="col-3 p-2 d-flex flex-column align-items-center">
-                            <div class="border mb-2 position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 70px; height: 70px;">
+                    <div class="row justify-content-center" data-time="2024-08-31 00:00:00" id="count-down" style="padding-top: 50px; padding-bottom: 50px; margin-bottom: 200px;">
+                        <!-- Hari -->
+                        <div class="col-custom p-2 d-flex flex-column align-items-center">
+                            <div class="frame-top position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 60px; height: 60px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; opacity: 1;"></div>
-                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="day" style="z-index: 1;">0</h2>
+                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="day" style="z-index: 1; color: #4B4366;">0</h2>
                             </div>
-                            <div class="mt-2 position-relative mb-2" style="background-image: url('./assets/images/frame-bot.png'); background-size: contain; background-position: center; width: 80px; height: 50px; opacity: 1;">
-                                <h3 class="m-0 p-0 position-absolute top-50 start-50 translate-middle" style="z-index: 1; font-size: 0.8rem;">Hari</h3>
+                            <div class="frame-bot position-relative d-flex justify-content-center align-items-center" style="background-image: url('./assets/images/frame-bot-3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 70px; height: 50px;">
+                                <div style="position: relative; top: 7px;">
+                                    <h3 class="m-0 p-0" style="z-index: 1; font-size: 0.8rem; color: #4B4366;">Hari</h3>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-3 p-2 d-flex flex-column align-items-center">
-                            <div class="border mb-2 position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 70px; height: 70px;">
+                        <!-- Jam -->
+                        <div class="col-custom p-2 d-flex flex-column align-items-center">
+                            <div class="frame-top position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 60px; height: 60px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; opacity: 1;"></div>
-                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="hour" style="z-index: 1;">0</h2>
+                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="hour" style="z-index: 1; color: #4B4366;">0</h2>
                             </div>
-                            <div class="mt-2 position-relative mb-2" style="background-image: url('./assets/images/frame-bot.png'); background-size: contain; background-position: center; width: 80px; height: 50px; opacity: 1;">
-                                <h3 class="m-0 p-0 position-absolute top-50 start-50 translate-middle" style="z-index: 1; font-size: 0.8rem;">Jam</h3>
+                            <div class="frame-bot position-relative d-flex justify-content-center align-items-center" style="background-image: url('./assets/images/frame-bot-3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 70px; height: 50px;">
+                                <div style="position: relative; top: 7px;">
+                                    <h3 class="m-0 p-0" style="z-index: 1; font-size: 0.8rem; color: #4B4366;">Jam</h3>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-3 p-2 d-flex flex-column align-items-center">
-                            <div class="border mb-2 position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 70px; height: 70px;">
+                        <!-- Menit -->
+                        <div class="col-custom p-2 d-flex flex-column align-items-center">
+                            <div class="frame-top position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 60px; height: 60px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; opacity: 1;"></div>
-                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="minute" style="z-index: 1;">0</h2>
+                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="minute" style="z-index: 1; color: #4B4366; ">0</h2>
                             </div>
-                            <div class="mt-2 position-relative mb-2" style="background-image: url('./assets/images/frame-bot.png'); background-size: contain; background-position: center; width: 80px; height: 50px; opacity: 1;">
-                                <h3 class="m-0 p-0 position-absolute top-50 start-50 translate-middle" style="z-index: 1; font-size: 0.8rem;">Menit</h3>
+                            <div class="frame-bot position-relative d-flex justify-content-center align-items-center" style="background-image: url('./assets/images/frame-bot-3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 70px; height: 50px;">
+                                <div style="position: relative; top: 7px;">
+                                    <h3 class="m-0 p-0" style="z-index: 1; font-size: 0.8rem; color: #4B4366;">Menit</h3>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-3 p-2 d-flex flex-column align-items-center">
-                            <div class="border mb-2 position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 70px; height: 70px;">
+                        <!-- Detik -->
+                        <div class="col-custom p-2 d-flex flex-column align-items-center">
+                            <div class="frame-top position-relative" style="background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; width: 60px; height: 60px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/frame-top.png'); background-size: cover; background-position: center; opacity: 1;"></div>
-                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="second" style="z-index: 1;">0</h2>
+                                <h2 class="d-inline m-0 p-0 position-absolute top-50 start-50 translate-middle" id="second" style="z-index: 1; color: #4B4366;">0</h2>
                             </div>
-                            <div class="mt-2 position-relative mb-2" style="background-image: url('./assets/images/frame-bot.png'); background-size: contain; background-position: center; width: 80px; height: 50px; opacity: 1;">
-                                <h3 class="m-0 p-0 position-absolute top-50 start-50 translate-middle" style="z-index: 1; font-size: 0.8rem;">Detik</h3>
+                            <div class="frame-bot position-relative d-flex justify-content-center align-items-center" style="background-image: url('./assets/images/frame-bot-3.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 70px; height: 50px;">
+                                <div style="position: relative; top: 7px;">
+                                    <h3 class="m-0 p-0" style="z-index: 1; font-size: 0.8rem; color: #4B4366;">Detik</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>                                                                                                        
-
+        </section>         
+            
+                                                                                                                    
         <!-- Detail Acara -->
         <section class="dark-section bg-black" id="mempelai" style="position: relative;">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./assets/images/sunset5.jpeg'); background-size: cover; background-position: center; opacity: 0.3;"></div>
