@@ -150,7 +150,7 @@ footer {
 }
 
 .wooden-background {
-    background-image: url('/wedding-inv/assets/images/conv1.png');
+    background-image: url('/assets/images/conv1.png');
     background-size: cover; /* Ensures the background image covers the entire element */
     background-repeat: no-repeat;
     background-position: center center; /* Center the background image */
@@ -170,7 +170,7 @@ footer {
 
 /* Specific adjustment for wooden-background */
 .card-body.wooden-background {
-    background-image: url('/wedding-inv/assets/images/conv1.png');
+    background-image: url('/assets/images/conv1.png');
     background-size: cover; /* Cover the entire element */
     background-repeat: no-repeat;
     background-position: center center; /* Center the background image */
@@ -184,7 +184,7 @@ footer {
 }
 
 .section-with-background {
-    background-image: url('./assets/images/sunset.gif');
+    background-image: url('/assets/images/sunset.gif');
     background-size: cover;
     background-position: center;
     padding-top: 30px;
