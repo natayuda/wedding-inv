@@ -184,7 +184,7 @@ footer {
 }
 
 .section-with-background {
-    background-image: url('/wedding-inv/assets/images/sunset.gif');
+    background-image: url('./assets/images/images/sunset.gif');
     background-size: cover;
     background-position: center;
     padding-top: 30px;
