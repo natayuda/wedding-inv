@@ -13,20 +13,20 @@ export const card = (() => {
     const session = storage('session');
 
     const lists = new Map([
-        ['\*', `<strong class="text-${theme.isDarkMode('light', 'dark')}">$1</strong>`],
-        ['\_', `<em class="text-${theme.isDarkMode('light', 'dark')}">$1</em>`],
-        ['\~', `<del class="text-${theme.isDarkMode('light', 'dark')}">$1</del>`],
-        ['\`\`\`', `<code class="font-monospace text-${theme.isDarkMode('light', 'dark')}">$1</code>`]
+        ['\*', `<strong class="text-${theme.isDarkMode('dark', 'light')}">$1</strong>`],
+        ['\_', `<em class="text-${theme.isDarkMode('dark', 'light')}">$1</em>`],
+        ['\~', `<del class="text-${theme.isDarkMode('dark', 'light')}">$1</del>`],
+        ['\`\`\`', `<code class="font-monospace text-${theme.isDarkMode('dark', 'light')}">$1</code>`]
     ]);
 
     const renderLoading = () => {
         document.getElementById('comments').innerHTML = `
-        <div class="card-body bg-theme-${theme.isDarkMode('dark', 'light')} shadow p-3 mx-0 mt-0 mb-3 rounded-4">
+        <div class="card-body bg-theme-${theme.isDarkMode('light', 'dark')} shadow p-3 mx-0 mt-0 mb-3 rounded-4">
             <div class="d-flex flex-wrap justify-content-between align-items-center placeholder-wave">
                 <span class="placeholder bg-secondary col-4 rounded-3"></span>
                 <span class="placeholder bg-secondary col-2 rounded-3"></span>
             </div>
-            <hr class="text-${theme.isDarkMode('light', 'dark')} my-1">
+            <hr class="text-black my-1"> <!-- Always black text -->
             <p class="card-text placeholder-wave">
                 <span class="placeholder bg-secondary col-6 rounded-3"></span>
                 <span class="placeholder bg-secondary col-5 rounded-3"></span>
@@ -46,7 +46,7 @@ export const card = (() => {
 
     const renderLike = (comment) => {
         return `
-        <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-2 p-0">
+        <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-black rounded-2 p-0">
             <div class="d-flex justify-content-start align-items-center">
                 <p class="my-0 mx-1" data-count-like="${comment.like.love}">${comment.like.love} like</p>
                 <i class="me-1 ${likes.has(comment.uuid) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'}"></i>
@@ -54,25 +54,25 @@ export const card = (() => {
         </button>`;
     };
 
-    const renderAction = (comment) => {
-        let action = '';
+const renderAction = (comment) => {
+    let action = '';
 
-        if (config.get('can_reply') == true || config.get('can_reply') === undefined) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.reply(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Reply</button>`;
-        }
+    if (config.get('can_reply') == true || config.get('can_reply') === undefined) {
+        action += `<button style="font-size: 0.8rem;" onclick="comment.reply(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-black rounded-3 py-0 me-1">Reply</button>`;
+    }
 
-        if (owns.has(comment.uuid) && (config.get('can_edit') == true || config.get('can_edit') === undefined)) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Edit</button>`;
-        }
+    if (owns.has(comment.uuid) && (config.get('can_edit') == true || config.get('can_edit') === undefined)) {
+        action += `<button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-black rounded-3 py-0 me-1">Edit</button>`;
+    }
 
-        if (session.get('token')?.split('.').length === 3) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0" data-own="${comment.own}">Delete</button>`;
-        } else if (owns.has(comment.uuid) && (config.get('can_delete') == true || config.get('can_delete') === undefined)) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0">Delete</button>`;
-        }
+    if (session.get('token')?.split('.').length === 3) {
+        action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-black rounded-3 py-0" data-own="${comment.own}">Delete</button>`;
+    } else if (owns.has(comment.uuid) && (config.get('can_delete') == true || config.get('can_delete') === undefined)) {
+        action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-black rounded-3 py-0">Delete</button>`;
+    }
 
-        return action;
-    };
+    return action;
+};
 
     const renderButton = (comment) => {
         return `
@@ -90,21 +90,20 @@ export const card = (() => {
         if (comment.ip === undefined || comment.user_agent === undefined || comment.is_admin) {
             return '';
         }
-
+    
         return `
         <div class="p-2 my-2 rounded-3 border">
-            <p class="text-${theme.isDarkMode('light', 'dark')} mb-1 mx-0 mt-0 p-0" style="font-size: 0.7rem;" id="ip-${comment.uuid}"><i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} ${tracker.has(comment.ip) ? `<strong>${tracker.get(comment.ip)}</strong>` : `<span class="mb-1 placeholder col-2 rounded-3"></span>`}</p>
-            <p class="text-${theme.isDarkMode('light', 'dark')} m-0 p-0" style="font-size: 0.7rem;"><i class="fa-solid fa-mobile-screen-button me-1"></i>${util.escapeHtml(comment.user_agent)}</p>
+            <p class="text-black mb-1 mx-0 mt-0 p-0" style="font-size: 0.7rem;" id="ip-${comment.uuid}"><i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} ${tracker.has(comment.ip) ? `<strong>${tracker.get(comment.ip)}</strong>` : `<span class="mb-1 placeholder col-2 rounded-3"></span>`}</p>
+            <p class="text-black m-0 p-0" style="font-size: 0.7rem;"><i class="fa-solid fa-mobile-screen-button me-1"></i>${util.escapeHtml(comment.user_agent)}</p>
         </div>`;
     };
 
     const renderHeader = (is_parent) => {
         if (is_parent) {
-            return `class="card-body bg-theme-${theme.isDarkMode('dark', 'light')} shadow p-3 mx-0 mt-0 mb-3 rounded-4" data-parent="true"`;
+            return `class="card-body wooden-background bg-theme-${theme.isDarkMode('light', 'dark')} shadow p-3 mx-0 mt-0 mb-3 rounded-4" data-parent="true"`;
         }
-
-        return `class="card-body border-start bg-theme-${theme.isDarkMode('dark', 'light')} py-2 ps-2 pe-0 my-2 ms-2 me-0"`;
-    };
+        return `class="card-body border-start bg-theme-${theme.isDarkMode('light', 'dark')} py-2 ps-2 pe-0 my-2 ms-2 me-0"`;
+    };      
 
     const renderTitle = (comment, is_parent) => {
         if (comment.is_admin) {
@@ -121,11 +120,11 @@ export const card = (() => {
     const renderBody = (comment, is_parent) => {
         return `
         <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <p class="text-${theme.isDarkMode('light', 'dark')} text-truncate m-0 p-0" style="font-size: 0.95rem;">${renderTitle(comment, is_parent)}</p>
-            <small class="text-${theme.isDarkMode('light', 'dark')} m-0 p-0" style="font-size: 0.75rem;">${comment.created_at}</small>
+            <p class="text-black text-truncate m-0 p-0" style="font-size: 0.95rem;">${renderTitle(comment, is_parent)}</p>
+            <small class="text-black m-0 p-0" style="font-size: 0.75rem;">${comment.created_at}</small>
         </div>
-        <hr class="text-${theme.isDarkMode('light', 'dark')} my-1">
-        <p class="text-${theme.isDarkMode('light', 'dark')} mt-0 mb-1 mx-0 p-0" style="white-space: pre-wrap !important" id="content-${comment.uuid}">${convertMarkdownToHTML(util.escapeHtml(comment.comment))}</p>`;
+        <hr class="text-black my-1">
+        <p class="text-black mt-0 mb-1 mx-0 p-0" style="white-space: pre-wrap !important" id="content-${comment.uuid}">${convertMarkdownToHTML(util.escapeHtml(comment.comment))}</p>`;
     };
 
     const renderContent = (comment, is_parent) => {

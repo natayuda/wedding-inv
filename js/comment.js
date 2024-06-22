@@ -157,16 +157,17 @@ export const comment = (() => {
 
     const reply = (button) => {
         const id = button.getAttribute('data-uuid');
-
+    
         if (document.getElementById(`inner-${id}`)) {
             return;
         }
-
+    
         changeButton(id, true);
-
+    
         const inner = document.createElement('div');
         inner.classList.add('my-2');
         inner.id = `inner-${id}`;
+        inner.style.backgroundColor = 'transparent'; // Ensure the reply section has a transparent background
         inner.innerHTML = `
         <label for="form-inner-${id}" class="form-label">Reply</label>
         <textarea class="form-control shadow-sm rounded-3 mb-2" id="form-inner-${id}" placeholder="Type reply comment"></textarea>
@@ -174,9 +175,9 @@ export const comment = (() => {
             <button style="font-size: 0.8rem;" onclick="comment.cancel('${id}')" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Cancel</button>
             <button style="font-size: 0.8rem;" onclick="comment.send(this)" data-uuid="${id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0">Send</button>
         </div>`;
-
+    
         document.getElementById(`button-${id}`).insertAdjacentElement('afterend', inner);
-    };
+    };     
 
     const edit = async (button) => {
         const id = button.getAttribute('data-uuid');
@@ -231,7 +232,7 @@ export const comment = (() => {
                 pagination.setResultData(res.data.length);
 
                 if (res.data.length === 0) {
-                    comments.innerHTML = `<div class="h6 text-center fw-bold p-4 my-3 bg-theme-${theme.isDarkMode('dark', 'light')} rounded-4 shadow">Yuk bagikan undangan ini biar banyak komentarnya</div>`;
+                    comments.innerHTML = `<div class="h6 text-center fw-bold p-4 my-3 bg-theme-${theme.isDarkMode('light', 'dark')} rounded-4 shadow">Terimakasih untuk ucapan dan doa nya!</div>`;
                     return;
                 }
 

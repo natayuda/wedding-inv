@@ -148,3 +148,64 @@ footer {
     width: calc(25% - 20px); /* 25% width for each column with space between */
     margin: 0 1px; /* Adjust the space between columns */
 }
+
+.wooden-background {
+    background-image: url('/wedding-inv/assets/images/conv1.png');
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-repeat: no-repeat;
+    background-position: center center; /* Center the background image */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.card-body {
+    background-color: transparent; /* Set background color to transparent */
+    border: none; /* Remove border */
+    padding: 20px; /* Ensure padding is consistent */
+}
+
+/* Specific adjustment for wooden-background */
+.card-body.wooden-background {
+    background-image: url('/wedding-inv/assets/images/conv1.png');
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat;
+    background-position: center center; /* Center the background image */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn-outline-black {
+    color: black;
+    /* Add other necessary styling for the button */
+}
+
+.section-with-background {
+    background-image: url('/wedding-inv/assets/images/sunset.gif');
+    background-size: cover;
+    background-position: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    overflow: hidden; /* Ensure content doesn't overflow the section */
+}
+
+/* Overlay to create opacity effect */
+.section-with-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+}
+
+/* Ensure content within this section stays at full opacity */
+.section-with-background .container {
+    position: relative;
+    z-index: 1;
+}
